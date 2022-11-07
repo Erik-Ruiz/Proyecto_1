@@ -15,15 +15,16 @@ $sql2 =  "SELECT * FROM tbl_mantenimiento WHERE correo = '$correo' and contrase√
 $stmt = mysqli_stmt_init($connection);
 
 if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header('Location:../login.php?error=errorconexion');
+    header('Location:../index.php?error=errorconexion');
+    // echo "<script>location.href='../pages/login.php'</script>";
     exit();
 }
 if (registroCamposVacios($correo, $contrase√±a) !== FALSE) {
-    header('Location:../login.php?error=camposvacios');
+    header('Location:../index.php?error=camposvacios');
     exit();
 }
 if (errorEmail($correo) !== FALSE) {
-    header('Location:../login.php?error=erroremail');
+    header('Location:../index.php?error=erroremail');
     exit();
 }
 
@@ -48,7 +49,7 @@ if ($num == 1) {
     session_start();
     $_SESSION['correo'] = $correo;
     $_SESSION['admin'] = true;
-    echo "<script>window.location.href = '../pages/camareros.php' </script>";
+    echo "<script>window.location.href = '../pages/mantenimiento.php' </script>";
 } else {
-    echo "<script>window.location.href = '../login..php' </script>";
+    echo "<script>window.location.href = '../index.php' </script>";
 }
