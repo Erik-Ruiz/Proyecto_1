@@ -1,10 +1,1 @@
-<?php
-
-    require_once './components/cabecera.html';
-
-?>
-
-<body>
-    
-</body>
-</html>
+<script>location.href='./pages/info.php'</script>
