@@ -66,6 +66,9 @@
             </ul>
           </li>
         </ul>
+
+        <button class="btn btn-outline-danger" name="logout" type="submit">Log Out</button>
+        
       </div>
     </div>
   </div>
