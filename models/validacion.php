@@ -26,8 +26,6 @@ function checkusername($username, $conexion) {
     $stmt = mysqli_stmt_init($conexion);
 
     if(mysqli_stmt_prepare($stmt, $sql1)){
-
-
     
         if (!mysqli_stmt_prepare($stmt, $sql1)) {
             header('Location:../login.php?error=errorconexion');
@@ -44,6 +42,7 @@ function checkusername($username, $conexion) {
         }
         mysqli_stmt_close($stmt);
         return $error;
+
     } elseif (mysqli_stmt_prepare($stmt, $sql2)){
 
         if (!mysqli_stmt_prepare($stmt, $sql2)) {
@@ -61,6 +60,7 @@ function checkusername($username, $conexion) {
         }
         mysqli_stmt_close($stmt);
         return $error;
+        
     } else{
         echo("ALGO VA MAL");
     }

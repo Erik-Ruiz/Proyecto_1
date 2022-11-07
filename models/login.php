@@ -41,14 +41,14 @@ if ($num == 1) {
     session_destroy();
     session_start();
     $_SESSION['correo'] = $correo;
-    echo "<script>window.location.href = '../view/vista.php' </script>";
+    echo "<script>window.location.href = '../pages/camareros.php' </script>";
 } else if ($num2 == 1) {
     session_start();
     session_destroy();
     session_start();
     $_SESSION['correo'] = $correo;
     $_SESSION['admin'] = true;
-    echo "<script>window.location.href = '../view/vista.php' </script>";
+    echo "<script>window.location.href = '../pages/camareros.php' </script>";
 } else {
-    echo "<script>window.location.href = '../index.html' </script>";
+    echo "<script>window.location.href = '../login..php' </script>";
 }
