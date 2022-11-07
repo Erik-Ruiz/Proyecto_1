@@ -29,7 +29,8 @@
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Camareros</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
+
+      <div class="offcanvas-body align-self-center text-center">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
