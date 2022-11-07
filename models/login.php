@@ -9,21 +9,21 @@ $passwordHash = sha1($contraseña);
 
 $correo = $connection->real_escape_string($correo);
 
-$sql = "SELECT * FROM tbl_profesores WHERE correo_profe = '$correo' and contraseña_profe = '$passwordHash';";
-$sql2 =  "SELECT * FROM tbl_admin WHERE correo_admin = '$correo' and contraseña_admin = '$passwordHash';";
+$sql = "SELECT * FROM tbl_camareros WHERE correo = '$correo' and contraseña = '$passwordHash';";
+$sql2 =  "SELECT * FROM tbl_mantenimiento WHERE correo = '$correo' and contraseña = '$passwordHash';";
 
 $stmt = mysqli_stmt_init($connection);
 
 if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header('Location:../index.php?error=errorconexion');
+    header('Location:../login.php?error=errorconexion');
     exit();
 }
 if (registroCamposVacios($correo, $contraseña) !== FALSE) {
-    header('Location:../index.php?error=camposvacios');
+    header('Location:../login.php?error=camposvacios');
     exit();
 }
 if (errorEmail($correo) !== FALSE) {
-    header('Location:../index.php?error=erroremail');
+    header('Location:../login.php?error=erroremail');
     exit();
 }
 
