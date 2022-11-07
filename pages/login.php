@@ -1,7 +1,7 @@
 <?php
 
-require_once './validate.php';
-require_once '../model/conexion.php';
+require_once './validacion.php';
+require_once './conexion.php';
 
 $correo = $_POST['correo'];
 $contraseña = $_POST['contraseña'];
