@@ -25,11 +25,11 @@
 
                 <form action="#">
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your email" required>
+                        <input type="text" placeholder="Enter your email" name="correo" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Enter your password" required>
+                        <input type="password" class="password" placeholder="Enter your password" name="contraseña" required>
                         <i class="uil uil-lock icon"></i>
                     </div>
 
