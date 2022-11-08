@@ -18,21 +18,14 @@ try{
 
     // selecionamos en la base de datos los datos introducidos arriba para comprobar si existen
     $sql = "SELECT * from tbl_camarero where correo='{$user}' and password ='{$pass}'";
-<<<<<<< HEAD
-=======
 
     $sql2 = "SELECT * from tbl_mantenimiento where correo='{$user}' and password='{$pass}'";
->>>>>>> 991beeaf033ad118c49bfb23d8c0b8dcaf814bd0
 
     $resultado = mysqli_query($conexion,$sql);
     $num=mysqli_num_rows($resultado);
 
-<<<<<<< HEAD
-
-=======
     $resultado2 = mysqli_query($conexion,$sql2);
     $num2=mysqli_num_rows($resultado2);
->>>>>>> 991beeaf033ad118c49bfb23d8c0b8dcaf814bd0
 
     // mysqli_free_result($resultado);
     // mysqli_free_result($resultado);
