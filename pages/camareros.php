@@ -1,5 +1,9 @@
 <?php
-
+  session_start();
+  if(empty($_SESSION['login'])){
+    header("Location: ../pages/index.php");
+    die();
+  }
     require_once '../components/cabecera.html';
 
 ?>
@@ -68,7 +72,9 @@
           </li>
         </ul>
 
-        <button class="btn btn-outline-danger" name="logout" type="submit">Log Out</button>
+        <form class="d-flex" role="search" action="../controller/logout.php" method="POST">
+          <button class="btn btn-outline-danger" name="logout" type="submit">Log Out</button>
+        </form>
 
       </div>
     </div>
