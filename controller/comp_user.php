@@ -16,6 +16,8 @@ try{
     // selecionamos en la base de datos los datos introducidos arriba para comprobar si existen
     $sql = "SELECT * from tbl_camarero where correo='$user' and contraseña='$pass'";
 
+    $sql2 = "SELECT * from tbl_mantenimiento where correo='$user' and contraseña='$pass'";
+
     $resultado = mysqli_query($conexion,$sql);
     //Si la base de datos es demasiado grande es mejor usar countrows
     $num=mysqli_num_rows($resultado);
