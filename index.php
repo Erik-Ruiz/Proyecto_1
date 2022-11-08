@@ -53,12 +53,7 @@
     </div>
      <input type="hidden" id="session" name="log" value="<?php echo $_GET["log"]; ?>"/>
 
-<<<<<<< HEAD
-    <script src="./js/valid-form.js"></script>
-    <script src="./js/valid-session.js"></script>
-=======
     
->>>>>>> 991beeaf033ad118c49bfb23d8c0b8dcaf814bd0
     
 </body>
 </html>

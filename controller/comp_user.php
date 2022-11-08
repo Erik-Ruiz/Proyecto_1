@@ -19,9 +19,13 @@ try{
     // selecionamos en la base de datos los datos introducidos arriba para comprobar si existen
     $sql = "SELECT * from tbl_camarero where correo='{$user}' and password ='{$pass}'";
 
+    $sql2 = "SELECT * from tbl_mantenimiento where correo='{$user}' and password='{$pass}'";
+
     $resultado = mysqli_query($conexion,$sql);
     $num=mysqli_num_rows($resultado);
 
+    $resultado2 = mysqli_query($conexion,$sql2);
+    $num2=mysqli_num_rows($resultado2);
 
     // mysqli_free_result($resultado);
     // mysqli_free_result($resultado);
