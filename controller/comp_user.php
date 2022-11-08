@@ -10,9 +10,6 @@ try{
     $pass = sha1($pass);
     
 
-    echo $pass;
-    echo $user;
-
     //Llamos la conexión de la base de datos
     require_once 'connection.php';
 
@@ -21,14 +18,13 @@ try{
 
     // selecionamos en la base de datos los datos introducidos arriba para comprobar si existen
     $sql = "SELECT * from tbl_camarero where correo='{$user}' and password ='{$pass}'";
-    echo $sql;
 
     $resultado = mysqli_query($conexion,$sql);
     //Si la base de datos es demasiado grande es mejor usar countrows
     $num=mysqli_num_rows($resultado);
     mysqli_free_result($resultado);
 
-    echo $num;
+
 
 
 

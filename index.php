@@ -48,8 +48,8 @@
     </div>
     <!-- <input type="hidden" id="session" name="log" value="<?php echo $_GET["log"]; ?>" /> -->
 
-    <script src="../js/valid-form.js"></script>
-    <script src="../js/valid-session.js"></script>
+    <script src="./js/valid-form.js"></script>
+    <script src="./js/valid-session.js"></script>
     
 </body>
 </html>
