@@ -19,10 +19,12 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     // echo "<script>location.href='../pages/login.php'</script>";
     exit();
 }
+
 if (registroCamposVacios($correo, $contraseña) !== FALSE) {
     header('Location:../index.php?error=camposvacios');
     exit();
 }
+
 if (errorEmail($correo) !== FALSE) {
     header('Location:../index.php?error=erroremail');
     exit();
