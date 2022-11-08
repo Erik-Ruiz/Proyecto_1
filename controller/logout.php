@@ -6,5 +6,6 @@ if(isset($logout)){
     session_destroy();
     echo "<script>location.href='../index.php'</script>";
 }else{
-    header("Location: ../index.php");
+    echo "<script>location.href='../index.php'</script>";
+    
 }
