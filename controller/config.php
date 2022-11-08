@@ -2,6 +2,6 @@
 
 
 const SERVIDOR ='localhost';
-const USUARIO = 'root';
-const PASSWORD = '';
+const USUARIO = 'admin';
+const PASSWORD = 'admin1234';
 const BD = 'bd_proyecto1';

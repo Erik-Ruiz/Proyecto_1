@@ -15,7 +15,7 @@
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="./css/login.css">
 
-    <script src="./js/login.js"></script>
+    <!-- <script src="./js/login.js"></script> -->
 
     <title>Login</title>
 </head>
@@ -27,24 +27,25 @@
             <div class="form login">
                 <span class="title">Login</span>
 
-                <form action="#">
+                <form action="./controller/comp_user.php" id="login" method="POST" onsubmit="validador(event);">
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your email" name="correo" required>
+                        <input type="text" placeholder="Enter your email" id="correo" name="mail" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Enter your password" name="contraseña" required>
+                        <input type="password" class="password" placeholder="Enter your password" id="passw" name="pass" required>
                         <i class="uil uil-lock icon"></i>
                     </div>
 
-                    <div class="input-field button">
-                        <input type="button" value="Login">
-                    </div>
+                    <button id="button">Login</button>
                 </form>
 
             </div>
         </div>
     </div>
+    <input type="hidden" id="session" name="log" value="<?php echo $_GET["log"]; ?>" />
+    <script src="../js/valid-form.js"></script>
+    <script src="../js/valid-session.js"></script>
     
 </body>
 </html>
