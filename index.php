@@ -17,6 +17,11 @@
 
     <link rel="shortcut icon" href="./img/logo_superior.jpg">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="./js/valid-form.js"></script>
+    <script src="./js/valid-session.js"></script>
+
 
     <title>Login</title>
 </head>
@@ -28,14 +33,14 @@
             <div class="form login">
                 <span class="title">Login</span>
 
-                <form action="./controller/comp_user.php" id="login" method="POST">
+                <form action="./controller/comp_user.php" id="login" method="POST" onsubmit="return validacion();">
                     <div class="input-field">
                         <input type="text" placeholder="Enter your email" id="correo" name="mail" required>
-                        <i class="uil uil-envelope icon"></i>
+                        <i id ="icono1" class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
                         <input type="password" class="password" placeholder="Enter your password" id="passw" name="pass" required>
-                        <i class="uil uil-lock icon"></i>
+                        <i id ="icono2" class="uil uil-lock icon"></i>
                     </div>
                     <div class="input-field button">
                         <input type="submit" id="button" value="LogIn">
@@ -46,15 +51,9 @@
             </div>
         </div>
     </div>
-    <!-- <input type="hidden" id="session" name="log" value="<?php echo $_GET["log"]; ?>" /> -->
+     <input type="hidden" id="session" name="log" value="<?php echo $_GET["log"]; ?>"/>
 
-    <script src="../js/valid-form.js"></script>
-    <script src="../js/valid-session.js"></script>
     
-</body>
-</html>
-
-
-
+    
 </body>
 </html>

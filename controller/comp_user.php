@@ -10,28 +10,25 @@ try{
     $pass = sha1($pass);
     
 
-    echo $pass;
-    echo $user;
-
     //Llamos la conexión de la base de datos
     require_once 'connection.php';
 
     //verificamos si el usuario no lleva ningun caracter raro, que podría ocasionar a un SQL INJECTION
-    //$user=strtolower(mysqli_real_escape_string($conexion,$user));
+    $user=strtolower(mysqli_real_escape_string($conexion,$user));
 
     // selecionamos en la base de datos los datos introducidos arriba para comprobar si existen
     $sql = "SELECT * from tbl_camarero where correo='{$user}' and password ='{$pass}'";
-    echo $sql;
 
-    $sql2 = "SELECT * from tbl_mantenimiento where correo='$user' and contraseña='$pass'";
+    $sql2 = "SELECT * from tbl_mantenimiento where correo='{$user}' and password='{$pass}'";
 
     $resultado = mysqli_query($conexion,$sql);
-    //Si la base de datos es demasiado grande es mejor usar countrows
     $num=mysqli_num_rows($resultado);
-    mysqli_free_result($resultado);
 
-    echo $num;
+    $resultado2 = mysqli_query($conexion,$sql2);
+    $num2=mysqli_num_rows($resultado2);
 
+    // mysqli_free_result($resultado);
+    // mysqli_free_result($resultado);
 
 
     //Si existen creamos la session, si no enviamos a login.php 
@@ -39,14 +36,19 @@ try{
         session_start();
         $_SESSION['login'] = $user;
         echo "<script>location.href='../pages/camareros.php'</script>";
-        // header("Location: ../pages/camareros.php");
+
+    }elseif($num2==1){
+        session_start();
+        $_SESSION['login'] = $user;
+        echo "<script>location.href='../pages/mantenimiento.php'</script>";
     }else{
-        echo "Error";
-        echo "<script>location.href='../index.php?log=1'</script>";
-        // header("Location: ../index.php?log=1");
+
+        // echo "<script>location.href='../index.php?'</script>";
+
     }
 
 }catch(Exception $e){
     echo $e->getMessage();
-    // header("Location: ../index.php?log=2");
+    // echo "<script>location.href='../index.php?'</script>";
+
 }
