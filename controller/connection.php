@@ -11,11 +11,12 @@
 //     echo "<script>location.href='../index.php?log=2'</script>";
 //     exit();
 // }
+try{
 
-// Nos conectamos a la base de datos mediante la funcion mysqli_connect
-$conexion = mysqli_connect("localhost", "admin","admin1234", "bd_proyecto1");
+    $conexion = mysqli_connect("192.168.114.228", "admin","admin1234", "bd_proyecto1");
 
-if (mysqli_connect_errno()) {
-    header("Location: ../index.php?log=2");
-    exit();
+} catch (Exception $e){
+
+    echo $e->getMessage();
 }
+// Nos conectamos a la base de datos mediante la funcion mysqli_connect
