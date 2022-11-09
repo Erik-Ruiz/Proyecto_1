@@ -1,5 +1,4 @@
 
-
 function validacion() {
 
     userI = document.getElementById('icono1');
