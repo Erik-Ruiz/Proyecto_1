@@ -13,7 +13,7 @@
 // }
 try{
 
-    $conexion = mysqli_connect("192.168.114.228", "admin","admin1234", "bd_proyecto1");
+    $conexion = mysqli_connect("localhost", "root","", "bd_proyecto_1");
 
 } catch (Exception $e){
 

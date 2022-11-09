@@ -11,9 +11,10 @@ function errorEmail($email){
     
 }
 function errorPsswd($pass){
-    if (preg_match_all('$S*(?=S{8,})S*$', $pass) == true) {
-        echo "Correcto";
+    if (!preg_match_all('$S*(?=S{8,})S*$', $pass) == true) {
+        $error=true;
     } else {
-        echo "Incorrecto";
+        $error=false;
     }
+    return $error;
 }

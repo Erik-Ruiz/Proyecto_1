@@ -22,7 +22,10 @@ try{
     $sql2 = "SELECT * from tbl_mantenimiento where correo='{$user}' and password='{$pass}'";
 
     $resultado = mysqli_query($conexion,$sql);
+
+    var_dump($resultado);
     $num=mysqli_num_rows($resultado);
+
 
     $resultado2 = mysqli_query($conexion,$sql2);
     $num2=mysqli_num_rows($resultado2);
