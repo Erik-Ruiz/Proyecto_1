@@ -6,15 +6,15 @@ function tiempoinicio(){
     $DateAndTime = date('m-d-Y h:i:s', time());  
     echo "The current date and time are $DateAndTime";
     
-    $sql1="INSERT INTO tbl_t_comer (id_comer,t_i_comer,t_f_comer,id_mesa) VALUES ('','$DateAndTime','',2)";
-    $stmt=mysqli_stmt_init($connection);
+    $sql1="INSERT INTO tbl_t_comer (t_i_comer,t_f_comer,id_mesa) VALUES ('$DateAndTime','',2)";
+    $stmt=mysqli_stmt_init($conexion);
     mysqli_stmt_prepare($stmt,$sql1);
     
     if (mysqli_stmt_execute($stmt) === TRUE) {
-        $last_id = $connection->insert_id;
+        $last_id = $conexion->insert_id;
         echo "New record created successfully. Last inserted ID is: " . $last_id;
     } else {
-        echo "Error: " . $sql1 . "<br>" . $connection->error;
+        echo "Error: " . $sql1 . "<br>" . $conexion->error;
     }
     
     mysqli_stmt_close($stmt);
