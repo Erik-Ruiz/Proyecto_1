@@ -1,5 +1,10 @@
 <?php
     header("refresh: 10;");
+
+    if(empty($_SESSION['login'])){
+        header("Location: ../index.php");
+        die();
+      }
 ?>
 
 

@@ -12,7 +12,7 @@ try{
 
     //Llamos la conexión de la base de datos
     require_once 'connection.php';
-    require_once '../includes/validacion.php';
+    // require_once '../includes/validacion.php';
 
     //verificamos si el usuario no lleva ningun caracter raro, que podría ocasionar a un SQL INJECTION
     $user=strtolower(mysqli_real_escape_string($conexion,$user));

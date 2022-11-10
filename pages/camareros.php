@@ -1,7 +1,7 @@
 <?php
   session_start();
   if(empty($_SESSION['login'])){
-    echo "<script>location.href='../pages/index.php'</script>";
+    echo "<script>location.href='../index.php'</script>";
 
     die();
   }
