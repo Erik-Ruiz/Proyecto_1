@@ -1,5 +1,6 @@
 <?php
 require_once "config.php";
+
 $server = SERVIDOR;
 $username = USUARIO;
 $password = PASSWORD;
