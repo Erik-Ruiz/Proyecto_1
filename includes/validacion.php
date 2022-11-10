@@ -1,6 +1,16 @@
 <?php
 require_once 'connection.php';
 
+
+
+function errorUser($username){
+    if(!preg_match("/^[a-zA-Z0-9]*$/",$username)){
+        $error = true;
+    }else{
+        $error=false;
+    }
+    return $error;
+}
 // function errorEmail($conexion){
 
 //     try{
@@ -77,18 +87,3 @@ require_once 'connection.php';
 // }
 
 
-
-    // if (!preg_match_all('$S*(?=S{8,})S*$', $pass) == true) {
-    //     $error=true;
-    // } else {
-    //     $error=false;
-    // }
-    // return $error;
-
-
-        // if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        //     $error=true;
-        // }else{
-        //     $error=false;
-        // }
-        // return $error;
