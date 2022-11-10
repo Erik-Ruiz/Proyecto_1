@@ -31,10 +31,6 @@ try{
     $resultado2 = mysqli_query($conexion,$sql2);
     $num2=mysqli_num_rows($resultado2);
 
-    // mysqli_free_result($resultado);
-    // mysqli_free_result($resultado);
-
-
     //Si existen creamos la session, si no enviamos a login.php 
     if ($num==1){
         session_start();
