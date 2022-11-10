@@ -53,13 +53,6 @@
     </div>
      <input type="hidden" id="session" name="log" value="<?php echo $_GET["log"]; ?>"/>
 
-
-     <?php
-
-     
-     
-     ?>
-    
     
 </body>
 </html>

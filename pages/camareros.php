@@ -1,10 +1,13 @@
 <?php
   session_start();
   if(empty($_SESSION['login'])){
-    header("Location: ../pages/index.php");
+    echo "<script>location.href='../pages/index.php'</script>";
+
     die();
   }
-    require_once '../components/cabecera.html';
+    require_once '../components/cabecera.php';
+    require_once '../controller/connection.php';
+    // header("refresh: 3;");
 
 ?>
 

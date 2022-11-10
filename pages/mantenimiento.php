@@ -4,7 +4,8 @@
     header("Location: ../pages/index.php");
     die();
   }
-    require_once '../components/cabecera.html';
+    require_once '../components/cabecera.php';
+    require_once '../controller/connection.php';
 
 ?>
 
