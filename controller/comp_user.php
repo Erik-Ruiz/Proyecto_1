@@ -12,6 +12,7 @@ try{
 
     //Llamos la conexión de la base de datos
     require_once 'connection.php';
+    require_once '../includes/validacion.php';
 
     //verificamos si el usuario no lleva ningun caracter raro, que podría ocasionar a un SQL INJECTION
     $user=strtolower(mysqli_real_escape_string($conexion,$user));
@@ -34,6 +35,8 @@ try{
     // mysqli_free_result($resultado);
 
 
+
+
     //Si existen creamos la session, si no enviamos a login.php 
     if ($num==1){
         session_start();
@@ -45,13 +48,17 @@ try{
         $_SESSION['login'] = $user;
         echo "<script>location.href='../pages/mantenimiento.php'</script>";
     }else{
+        echo "<script>location.href='../index.php?'</script>";
+        // if(errorEmail($conexion,$user)){
+        //     if($error == false){
 
-        // echo "<script>location.href='../index.php?'</script>";
-
+        //     }
+    
+        // }
     }
 
 }catch(Exception $e){
     echo $e->getMessage();
-    // echo "<script>location.href='../index.php?'</script>";
-
+    //echo "<script>location.href='../index.php?'</script>";
+    
 }
