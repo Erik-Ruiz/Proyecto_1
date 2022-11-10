@@ -35,8 +35,6 @@ try{
     // mysqli_free_result($resultado);
 
 
-
-
     //Si existen creamos la session, si no enviamos a login.php 
     if ($num==1){
         session_start();
@@ -49,16 +47,10 @@ try{
         echo "<script>location.href='../pages/mantenimiento.php'</script>";
     }else{
         echo "<script>location.href='../index.php?'</script>";
-        // if(errorEmail($conexion,$user)){
-        //     if($error == false){
-
-        //     }
-    
-        // }
     }
 
 }catch(Exception $e){
     echo $e->getMessage();
-    //echo "<script>location.href='../index.php?'</script>";
+    echo "<script>location.href='../index.php?'</script>";
     
 }
