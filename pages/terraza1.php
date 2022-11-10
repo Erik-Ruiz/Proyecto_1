@@ -107,8 +107,8 @@ require_once './components/cabecera.html';
 
             <script type="text/javascript" language="javascript">
                 function mostrar_imagen(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    // img = document.getElementById(id);
+                    // img.innerHTML = '<img src="./Mesa_Libre.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
                     if (!$sql == 'Libre') {
@@ -117,6 +117,7 @@ require_once './components/cabecera.html';
                         echo "console.log('Ya esta libre')";
                     }
                     ?>
+                    // refresh de la pagina
                 }
 
                 function mostrar_imagen1(id) {
