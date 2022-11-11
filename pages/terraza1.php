@@ -88,11 +88,11 @@ require_once './components/cabecera.html';
                 <?php
                 $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
                 if ($sql == 'Libre') {
-                    echo "<img src='./Mesa_Libre.png' />";
+                    echo "<img src='../img/mesaPequeLibre.png' />";
                 } else if ($sql == 'Ocupado') {
-                    echo "<img src='./Mesa_Ocupada.png' />";
+                    echo "<img src='../img/mesaPequeOcupada.png' />";
                 } else {
-                    echo "<img src='./Mesa_reparacion.png' width='480px'/>";
+                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
                 }
 
                 ?>
@@ -122,7 +122,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen1(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
                     if (!$sql == 'Ocupado') {
@@ -136,7 +136,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen2(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
                     if (!$sql == 'Mantenimiento') {
@@ -157,11 +157,11 @@ require_once './components/cabecera.html';
             <?php
                 $sql2 = "SELECT estado FROM tbl_mesa WHERE id = 2";
                 if ($sql == 'Libre') {
-                    echo "<img src='./Mesa_Libre.png' />";
+                    echo "<img src='../img/mesaPequeLibre.png' />";
                 } else if ($sql == 'Ocupado') {
-                    echo "<img src='./Mesa_Ocupada.png' />";
+                    echo "<img src='../img/mesaPequeOcupada.png' />";
                 } else {
-                    echo "<img src='./Mesa_reparacion.png' width='480px'/>";
+                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
                 }
 
                 ?>
@@ -175,7 +175,7 @@ require_once './components/cabecera.html';
             <script type="text/javascript" language="javascript">
                 function mostrar_imagen20(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 2";
                     if (!$sql == 'Libre') {
@@ -188,7 +188,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen21(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 2";
                     if (!$sql == 'Ocupado') {
@@ -202,7 +202,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen22(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 2";
                     if (!$sql == 'Mantenimiento') {
@@ -223,11 +223,11 @@ require_once './components/cabecera.html';
             <?php
                 $sql3 = "SELECT estado FROM tbl_mesa WHERE id = 3";
                 if ($sql == 'Libre') {
-                    echo "<img src='./Mesa_Libre.png' />";
+                    echo "<img src='../img/mesaPequeLibre.png' />";
                 } else if ($sql == 'Ocupado') {
-                    echo "<img src='./Mesa_Ocupada.png' />";
+                    echo "<img src='../img/mesaPequeOcupada.png' />";
                 } else {
-                    echo "<img src='./Mesa_reparacion.png' width='480px'/>";
+                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
                 }
 
                 ?>
@@ -241,7 +241,7 @@ require_once './components/cabecera.html';
             <script type="text/javascript" language="javascript">
                 function mostrar_imagen30(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 3";
                     if (!$sql == 'Libre') {
@@ -254,7 +254,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen31(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 3";
                     if (!$sql == 'Ocupado') {
@@ -268,7 +268,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen32(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 3";
                     if (!$sql == 'Mantenimiento') {
@@ -289,11 +289,11 @@ require_once './components/cabecera.html';
             <?php
                 $sql4 = "SELECT estado FROM tbl_mesa WHERE id = 4";
                 if ($sql == 'Libre') {
-                    echo "<img src='./Mesa_Libre.png' />";
+                    echo "<img src='../img/mesaPequeLibre.png' />";
                 } else if ($sql == 'Ocupado') {
-                    echo "<img src='./Mesa_Ocupada.png' />";
+                    echo "<img src='../img/mesaPequeOcupada.png' />";
                 } else {
-                    echo "<img src='./Mesa_reparacion.png' width='480px'/>";
+                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
                 }
 
                 ?>
@@ -307,7 +307,7 @@ require_once './components/cabecera.html';
             <script type="text/javascript" language="javascript">
                 function mostrar_imagen40(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 4";
                     if (!$sql == 'Libre') {
@@ -320,7 +320,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen41(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 4";
                     if (!$sql == 'Ocupado') {
@@ -334,7 +334,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen42(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 4";
                     if (!$sql == 'Mantenimiento') {
@@ -356,11 +356,11 @@ require_once './components/cabecera.html';
             <?php
                 $sql5 = "SELECT estado FROM tbl_mesa WHERE id = 5";
                 if ($sql == 'Libre') {
-                    echo "<img src='./Mesa_Libre.png' />";
+                    echo "<img src='../img/mesaPequeLibre.png' />";
                 } else if ($sql == 'Ocupado') {
-                    echo "<img src='./Mesa_Ocupada.png' />";
+                    echo "<img src='../img/mesaPequeOcupada.png' />";
                 } else {
-                    echo "<img src='./Mesa_reparacion.png' width='480px'/>";
+                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
                 }
 
                 ?>
@@ -374,7 +374,7 @@ require_once './components/cabecera.html';
             <script type="text/javascript" language="javascript">
                 function mostrar_imagen50(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 5";
                     if (!$sql == 'Libre') {
@@ -387,7 +387,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen51(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 5";
                     if (!$sql == 'Ocupado') {
@@ -401,7 +401,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen52(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 5";
                     if (!$sql == 'Mantenimiento') {
@@ -423,11 +423,11 @@ require_once './components/cabecera.html';
             <?php
                 $sql6 = "SELECT estado FROM tbl_mesa WHERE id = 6";
                 if ($sql == 'Libre') {
-                    echo "<img src='./Mesa_Libre.png' />";
+                    echo "<img src='../img/mesaPequeLibre.png' />";
                 } else if ($sql == 'Ocupado') {
-                    echo "<img src='./Mesa_Ocupada.png' />";
+                    echo "<img src='../img/mesaPequeOcupada.png' />";
                 } else {
-                    echo "<img src='./Mesa_reparacion.png' width='480px'/>";
+                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
                 }
 
                 ?>
@@ -441,7 +441,7 @@ require_once './components/cabecera.html';
             <script type="text/javascript" language="javascript">
                 function mostrar_imagen60(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 6";
                     if (!$sql == 'Libre') {
@@ -454,7 +454,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen61(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 6";
                     if (!$sql == 'Ocupado') {
@@ -468,7 +468,7 @@ require_once './components/cabecera.html';
 
                 function mostrar_imagen62(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                     <?php
                     $sql = "SELECT estado FROM tbl_mesa WHERE id = 6";
                     if (!$sql == 'Mantenimiento') {
