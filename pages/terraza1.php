@@ -117,7 +117,7 @@ require_once './components/cabecera.html';
                         echo "console.log('Ya esta libre')";
                     }
                     ?>
-                    // refresh de la pagina
+                    location.reload();
                 }
 
                 function mostrar_imagen1(id) {
