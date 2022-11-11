@@ -82,7 +82,7 @@ require_once '../controller/connection.php';
             <h1 class="pado">Mesa1</h1>
 
             <div id="imagen">
-                <img src="./Mesa_Libre.png" />
+                <img src="../img/mesaPequeLibre.png" />
 
             </div>
             <form method="post" class="padding" action="./terraza1.php">
@@ -94,13 +94,13 @@ require_once '../controller/connection.php';
             <script type="text/javascript" language="javascript">
                 function mostrar_imagen(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                     // tiempo fin
                 }
 
                 function mostrar_imagen1(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     // tiempo inicio
                     <?php
                     function tiempoinicio()
@@ -115,7 +115,7 @@ require_once '../controller/connection.php';
 
                 function mostrar_imagen2(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" width="480px"/> ';
                 }
             </script>
         </div>
@@ -125,7 +125,7 @@ require_once '../controller/connection.php';
             <h1 class="pado">Mesa2</h1>
 
             <div id="imagen2">
-                <img src="./Mesa_Libre.png" />
+                <img src="../img/mesaPequeLibre.png" />
 
             </div>
             <form method="post" class="padding" action="./terraza1.php">
@@ -139,19 +139,19 @@ require_once '../controller/connection.php';
 
                 function mostrar_imagen20(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                 }
 
                 function mostrar_imagen21(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     dom.Element.setAttribute('name', 'Ocupado1');
                     count = count + 4;
                 }
 
                 function mostrar_imagen22(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                 }
             </script>
         </div>
@@ -161,7 +161,7 @@ require_once '../controller/connection.php';
             <h1 class="pado">Mesa3</h1>
 
             <div id="imagen3">
-                <img src="./Mesa_Libre.png" />
+                <img src="../img/mesaPequeLibre.png" />
 
             </div>
             <form method="post" class="padding" action="./terraza1.php">
@@ -175,12 +175,12 @@ require_once '../controller/connection.php';
 
                 function mostrar_imagen30(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                 }
 
                 function mostrar_imagen31(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     dom.Element.setAttribute('name', 'Ocupado1');
                     count = count + 4;
                 }
@@ -216,14 +216,14 @@ require_once '../controller/connection.php';
 
                 function mostrar_imagen41(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     dom.Element.setAttribute('name', 'Ocupado1');
                     count = count + 4;
                 }
 
                 function mostrar_imagen42(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                 }
             </script>
         </div>
@@ -260,7 +260,7 @@ require_once '../controller/connection.php';
 
                 function mostrar_imagen52(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                 }
             </script>
         </div>
@@ -271,7 +271,7 @@ require_once '../controller/connection.php';
             <h1 class="pado">Mesa6</h1>
 
             <div id="imagen6">
-                <img src="./Mesa_Libre.png" />
+                <img src="../img/mesaPequeLibre.png" />
 
             </div>
             <form method="post" class="padding" action="./terraza1.php">
@@ -285,19 +285,19 @@ require_once '../controller/connection.php';
 
                 function mostrar_imagen60(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Libre.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
                 }
 
                 function mostrar_imagen61(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_Ocupada.png" />';
+                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
                     dom.Element.setAttribute('name', 'Ocupado1');
                     count = count + 4;
                 }
 
                 function mostrar_imagen62(id) {
                     img = document.getElementById(id);
-                    img.innerHTML = '<img src="./Mesa_reparacion.png" width="480px"/> ';
+                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
                 }
             </script>
         </div>
