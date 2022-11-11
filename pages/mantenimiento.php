@@ -1,7 +1,8 @@
 <?php
   session_start();
   if(empty($_SESSION['login'])){
-    header("Location: ../pages/index.php");
+    echo "<script>location.href='../index.php'</script>";
+
     die();
   }
     require_once '../components/cabecera.php';
