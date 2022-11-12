@@ -2,28 +2,14 @@
     require_once "../controller/connection.php";
     require_once "../components/cabecera.php";
 ?>
-<head>
-	<!-- Load plotly.js into the DOM -->
-	<script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
-</head>
+<?php
+        $sql = "SELECT cont FROM tbl_mesa where id=2";
+        $stmt=mysqli_stmt_init($conexion);
+        mysqli_stmt_prepare($stmt,$sql);
+        mysqli_stmt_execute($stmt);
+        $resultadoconsulta=mysqli_stmt_get_result($stmt);
+        // $resultfa=$resultadoconsulta->fetch_all(MYSQLI_ASSOC);
+        echo $resultadoconsulta;
 
-<body>
-	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
-</body>
 
-<script type="text/javascript">
-
-var data = [{
-  values: [19, 26, 55],
-  labels: ['Residential', 'Non-Residential', 'Utility'],
-  type: 'pie'
-}];
-
-var layout = {
-  height: 400,
-  width: 500
-};
-
-Plotly.newPlot('myDiv', data, layout);
-
-</script>
+?>

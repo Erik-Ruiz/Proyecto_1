@@ -1,7 +1,7 @@
 <?php
 require_once '../components/cabecera.php';
 require_once '../controller/connection.php';
-
+require_once '../controller/hora.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ require_once '../controller/connection.php';
     <nav class="navbar bg-light fixed-top">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="#">Camareros Terraza 1</a>
+            <a class="navbar-brand" href="./camareros.php">Camareros <a class="navbar-brand" href="#">Terraza 1</a></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -74,10 +74,10 @@ require_once '../controller/connection.php';
             </div>
         </div>
     </nav>
-    <div class="padding-top">
+    <div style="margin-top: 30px;" class="mesa">
         <!-- MESA1 -->
         <div class="column-3">
-            <h1 class="pado">Mesa1</h1>
+            
 
             <div id="imagen">
                 <?php
@@ -88,111 +88,36 @@ require_once '../controller/connection.php';
                 $resultadoconsulta=mysqli_stmt_get_result($stmt);
                 $resultfa=$resultadoconsulta->fetch_all(MYSQLI_ASSOC);
                 // mysqli_fetch_all($resultadoconsulta);
-                $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
-                if ($sql == 'Libre') {
-                    echo "<img src='../img/mesaPequeLibre.png' />";
-                } else if ($sql == 'Ocupado') {
-                    echo "<img src='../img/mesaPequeOcupada.png' />";
-                } else {
-                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
-                }
-
-                ?>
-
-
-            </div>
-            <form method="post" class="padding" action="./terraza1.php">
-                <input type="button" class="favorite styledc" value="L" name="Libre" onClick="javascript:mostrar_imagen('imagen')" />
-                <input type="button" class="favorite styleda" value="O" onClick="javascript:mostrar_imagen1('imagen')" />
-                <input type="button" class="favorite styledb" value="M" onClick="javascript:mostrar_imagen2('imagen')" />
-            </form>
-
-            <script type="text/javascript" language="javascript">
-                function mostrar_imagen(id) {
-                    // img = document.getElementById(id);
-                    // img.innerHTML = '<img src="./Mesa_Libre.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
-                    if (!$sql == 'Libre') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Libre' WHERE id = 1";
-                    } else {
-                        echo "console.log('Ya esta libre')";
-                    }
-                    ?>
-                    location.reload();
-                }
-
-                function mostrar_imagen1(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
-                    if (!$sql == 'Ocupado') {
-                        $sqll = "UPDATE tbl_mesa SET cont = cont+4 WHERE id = 1";
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Ocupado' WHERE id = 1";
-                    } else {
-                        echo "console.log('Ya esta ocupado')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen2(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
-                    if (!$sql == 'Mantenimiento') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = 1";
-                    } else {
-                        echo "console.log('Ya esta en mantenimiento')";
-                    }
-                    ?>
-                }
-            </script>
-        </div>
-
-        <!-- MESA2 -->
-        <div class="column-3">
-            <h1 class="pado">Mesa2</h1>
-
-            <div id="imagen2">
-            <?php
-                $sql2 = "SELECT estado FROM tbl_mesa WHERE id = 2";
-                if ($sql == 'Libre') {
-                    echo "<img src='../img/mesaPequeLibre.png' />";
-                } else if ($sql == 'Ocupado') {
-                    echo "<img src='../img/mesaPequeOcupada.png' />";
-                } else {
-                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
-                }
 
                 ?>
             </div>
         <?php
         $contmesa=0;
-        foreach($resultfa as $mesa){
-                if ($resultfa[$contmesa]['estado'] == 'Libre') {
-                    echo "<img src='../img/mesa_libre.png' />";
-                } else if ($resultfa[$contmesa]['estado'] == 'Ocupado') {
-                    echo "<img src='../img/Mesa_Ocupada.png' />";
-                } else {
-                    echo "<img src='../img/Mesa_reparacion.png' width='480px'/>";
-                }?>
-            <form method="post" class="padding" action="../controller/mesa.php">
-            <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">    
-                <input type="submit" class="favorite styledc" value="Libre" name="Libre" onClick="javascript:mostrar_imagen('imagen')" />
-                <input type='hidden' name='funcion' value='Libre'>    
-            </form>
-                <form method="post" class="padding" action="../controller/mesa.php">
-                    <input type="submit" class="favorite styleda" value="Ocupar" onClick="javascript:mostrar_imagen1('imagen')" />
-                    <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
-                    <input type='hidden' name='funcion' value='Ocupado'>
-                </form>
-                <form method="post" class="padding" action="../controller/mesa.php">
-                    <input type="submit" class="favorite styledb" value="Mantener" onClick="javascript:mostrar_imagen2('imagen')" />
-                    <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
-                    <input type='hidden' name='funcion' value='Mantenimiento'>
-                </form>
+            foreach($resultfa as $mesa){
+                    if ($resultfa[$contmesa]['estado'] == 'Libre') {
+                        echo "<img src='../img/mesaPequeLibre.png' />";
+                    } else if ($resultfa[$contmesa]['estado'] == 'Ocupado') {
+                        echo "<img src='../img/mesaPequeOcupada.png' />";
+                    } else {
+                        echo "<img src='../img/mesaPequeMantenimiento.png'/>";
+                    }?>
+            
+                    <form method="post" class="padding" action="../controller/mesa.php">
+                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">    
+                        <input type="submit" class="favorite styledc" value="Libre" name="Libre" />
+                        <input type='hidden' name='funcion' value='Libre'>    
+                    </form>
+                    <form method="post" class="padding" action="../controller/mesa.php">
+                        <input type="submit" class="favorite styleda" value="Ocupar"/>
+                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
+                        <input type='hidden' name='funcion' value='Ocupado'>
+                    </form>
+                    <form method="post" class="padding" action="../controller/mesa.php">
+                        <input type="submit" class="favorite styledb" value="Mantener"  />
+                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
+                        <input type='hidden' name='funcion' value='Mantenimiento'>
+                    </form>
+            </div>
         <?php $contmesa++; } ?>
     </body>
 </html>
