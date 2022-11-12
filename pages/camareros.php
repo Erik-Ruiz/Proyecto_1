@@ -44,7 +44,7 @@
               Terrazas
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Terraza 1</a></li>
+              <li><a class="dropdown-item" href="terraza1.php">Terraza 1</a></li>
               <li><a class="dropdown-item" href="#">Terraza 2</a></li>
             </ul>
           </li>

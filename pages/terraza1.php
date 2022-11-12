@@ -1,18 +1,14 @@
 <?php
-// session_start();
-// if (empty($_SESSION['login'])) {
-//     header("Location: ../pages/index.php");
-//     die();
-// }
-require_once './components/cabecera.html';
-
+require_once '../components/cabecera.php';
+require_once '../controller/connection.php';
+require_once '../controller/hora.php';
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="./css/terraza.css" />
+    <link rel="stylesheet" href="../css/terraza.css" />
 </head>
 <br>
 
@@ -20,7 +16,7 @@ require_once './components/cabecera.html';
     <nav class="navbar bg-light fixed-top">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="#">Camareros Terraza 1</a>
+            <a class="navbar-brand" href="./camareros.php">Camareros <a class="navbar-brand" href="#">Terraza 1</a></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -78,418 +74,50 @@ require_once './components/cabecera.html';
             </div>
         </div>
     </nav>
-
-    <div class="padding-top">
+    <div style="margin-top: 30px;" class="mesa">
         <!-- MESA1 -->
         <div class="column-3">
-            <h1 class="pado">Mesa1</h1>
+            
 
             <div id="imagen">
                 <?php
-                $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
-                if ($sql == 'Libre') {
-                    echo "<img src='../img/mesaPequeLibre.png' />";
-                } else if ($sql == 'Ocupado') {
-                    echo "<img src='../img/mesaPequeOcupada.png' />";
-                } else {
-                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
-                }
-
-                ?>
-
-
-            </div>
-            <form method="post" class="padding" action="./terraza1.php">
-                <input type="button" class="favorite styledc" value="L" name="Libre" onClick="javascript:mostrar_imagen('imagen')" />
-                <input type="button" class="favorite styleda" value="O" onClick="javascript:mostrar_imagen1('imagen')" />
-                <input type="button" class="favorite styledb" value="M" onClick="javascript:mostrar_imagen2('imagen')" />
-            </form>
-
-            <script type="text/javascript" language="javascript">
-                function mostrar_imagen(id) {
-                    // img = document.getElementById(id);
-                    // img.innerHTML = '<img src="./Mesa_Libre.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
-                    if (!$sql == 'Libre') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Libre' WHERE id = 1";
-                    } else {
-                        echo "console.log('Ya esta libre')";
-                    }
-                    ?>
-                    location.reload();
-                }
-
-                function mostrar_imagen1(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
-                    if (!$sql == 'Ocupado') {
-                        $sqll = "UPDATE tbl_mesa SET cont = cont+4 WHERE id = 1";
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Ocupado' WHERE id = 1";
-                    } else {
-                        echo "console.log('Ya esta ocupado')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen2(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 1";
-                    if (!$sql == 'Mantenimiento') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = 1";
-                    } else {
-                        echo "console.log('Ya esta en mantenimiento')";
-                    }
-                    ?>
-                }
-            </script>
-        </div>
-
-        <!-- MESA2 -->
-        <div class="column-3">
-            <h1 class="pado">Mesa2</h1>
-
-            <div id="imagen2">
-            <?php
-                $sql2 = "SELECT estado FROM tbl_mesa WHERE id = 2";
-                if ($sql == 'Libre') {
-                    echo "<img src='../img/mesaPequeLibre.png' />";
-                } else if ($sql == 'Ocupado') {
-                    echo "<img src='../img/mesaPequeOcupada.png' />";
-                } else {
-                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
-                }
+                $sql = "SELECT estado,id FROM tbl_mesa";
+                $stmt=mysqli_stmt_init($conexion);
+                mysqli_stmt_prepare($stmt,$sql);
+                mysqli_stmt_execute($stmt);
+                $resultadoconsulta=mysqli_stmt_get_result($stmt);
+                $resultfa=$resultadoconsulta->fetch_all(MYSQLI_ASSOC);
+                // mysqli_fetch_all($resultadoconsulta);
 
                 ?>
             </div>
-            <form method="post" class="padding" action="./terraza1.php">
-                <input type="button" class="favorite styledc" value="L" name="Libre" onClick="javascript:mostrar_imagen20('imagen2')" />
-                <input type="button" class="favorite styleda" value="O" onClick="javascript:mostrar_imagen21('imagen2')" />
-                <input type="button" class="favorite styledb" value="M" onClick="javascript:mostrar_imagen22('imagen2')" />
-            </form>
-
-            <script type="text/javascript" language="javascript">
-                function mostrar_imagen20(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 2";
-                    if (!$sql == 'Libre') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Libre' WHERE id = 2";
+        <?php
+        $contmesa=0;
+            foreach($resultfa as $mesa){
+                    if ($resultfa[$contmesa]['estado'] == 'Libre') {
+                        echo "<img src='../img/mesaPequeLibre.png' />";
+                    } else if ($resultfa[$contmesa]['estado'] == 'Ocupado') {
+                        echo "<img src='../img/mesaPequeOcupada.png' />";
                     } else {
-                        echo "console.log('Ya esta libre')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen21(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 2";
-                    if (!$sql == 'Ocupado') {
-                        $sqll = "UPDATE tbl_mesa SET cont = cont+4 WHERE id = 2";
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Ocupado' WHERE id = 2";
-                    } else {
-                        echo "console.log('Ya esta ocupado')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen22(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 2";
-                    if (!$sql == 'Mantenimiento') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = 2";
-                    } else {
-                        echo "console.log('Ya esta en mantenimiento')";
-                    }
-                    ?>
-                }
-            </script>
-        </div>
-
-        <!-- MESA3 -->
-        <div class="column-3">
-            <h1 class="pado">Mesa3</h1>
-
-            <div id="imagen3">
-            <?php
-                $sql3 = "SELECT estado FROM tbl_mesa WHERE id = 3";
-                if ($sql == 'Libre') {
-                    echo "<img src='../img/mesaPequeLibre.png' />";
-                } else if ($sql == 'Ocupado') {
-                    echo "<img src='../img/mesaPequeOcupada.png' />";
-                } else {
-                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
-                }
-
-                ?>
+                        echo "<img src='../img/mesaPequeMantenimiento.png'/>";
+                    }?>
+            
+                    <form method="post" class="padding" action="../controller/mesa.php">
+                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">    
+                        <input type="submit" class="favorite styledc" value="Libre" name="Libre" />
+                        <input type='hidden' name='funcion' value='Libre'>    
+                    </form>
+                    <form method="post" class="padding" action="../controller/mesa.php">
+                        <input type="submit" class="favorite styleda" value="Ocupar"/>
+                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
+                        <input type='hidden' name='funcion' value='Ocupado'>
+                    </form>
+                    <form method="post" class="padding" action="../controller/mesa.php">
+                        <input type="submit" class="favorite styledb" value="Mantener"  />
+                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
+                        <input type='hidden' name='funcion' value='Mantenimiento'>
+                    </form>
             </div>
-            <form method="post" class="padding" action="./terraza1.php">
-                <input type="button" class="favorite styledc" value="L" name="Libre" onClick="javascript:mostrar_imagen30('imagen3')" />
-                <input type="button" class="favorite styleda" value="O" onClick="javascript:mostrar_imagen31('imagen3')" />
-                <input type="button" class="favorite styledb" value="M" onClick="javascript:mostrar_imagen32('imagen3')" />
-            </form>
-
-            <script type="text/javascript" language="javascript">
-                function mostrar_imagen30(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 3";
-                    if (!$sql == 'Libre') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Libre' WHERE id = 3";
-                    } else {
-                        echo "console.log('Ya esta libre')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen31(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 3";
-                    if (!$sql == 'Ocupado') {
-                        $sqll = "UPDATE tbl_mesa SET cont = cont+4 WHERE id = 3";
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Ocupado' WHERE id = 3";
-                    } else {
-                        echo "console.log('Ya esta ocupado')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen32(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 3";
-                    if (!$sql == 'Mantenimiento') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = 3";
-                    } else {
-                        echo "console.log('Ya esta en mantenimiento')";
-                    }
-                    ?>
-                }
-            </script>
-        </div>
-
-        <!-- MESA4 -->
-        <div class="column-3">
-            <h1 class="pado">Mesa4</h1>
-
-            <div id="imagen4">
-            <?php
-                $sql4 = "SELECT estado FROM tbl_mesa WHERE id = 4";
-                if ($sql == 'Libre') {
-                    echo "<img src='../img/mesaPequeLibre.png' />";
-                } else if ($sql == 'Ocupado') {
-                    echo "<img src='../img/mesaPequeOcupada.png' />";
-                } else {
-                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
-                }
-
-                ?>
-            </div>
-            <form method="post" class="padding" action="./terraza1.php">
-                <input type="button" class="favorite styledc" value="L" name="Libre" onClick="javascript:mostrar_imagen40('imagen4')" />
-                <input type="button" class="favorite styleda" value="O" onClick="javascript:mostrar_imagen41('imagen4')" />
-                <input type="button" class="favorite styledb" value="M" onClick="javascript:mostrar_imagen42('imagen4')" />
-            </form>
-
-            <script type="text/javascript" language="javascript">
-                function mostrar_imagen40(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 4";
-                    if (!$sql == 'Libre') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Libre' WHERE id = 4";
-                    } else {
-                        echo "console.log('Ya esta libre')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen41(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 4";
-                    if (!$sql == 'Ocupado') {
-                        $sqll = "UPDATE tbl_mesa SET cont = cont+4 WHERE id = 4";
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Ocupado' WHERE id = 4";
-                    } else {
-                        echo "console.log('Ya esta ocupado')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen42(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 4";
-                    if (!$sql == 'Mantenimiento') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = 4";
-                    } else {
-                        echo "console.log('Ya esta en mantenimiento')";
-                    }
-                    ?>
-                }
-            </script>
-        </div>
-
-
-        <!-- MESA5 -->
-        <div class="column-3">
-            <h1 class="pado">Mesa5</h1>
-
-            <div id="imagen5">
-            <?php
-                $sql5 = "SELECT estado FROM tbl_mesa WHERE id = 5";
-                if ($sql == 'Libre') {
-                    echo "<img src='../img/mesaPequeLibre.png' />";
-                } else if ($sql == 'Ocupado') {
-                    echo "<img src='../img/mesaPequeOcupada.png' />";
-                } else {
-                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
-                }
-
-                ?>
-            </div>
-            <form method="post" class="padding" action="./terraza1.php">
-                <input type="button" class="favorite styledc" value="L" name="Libre" onClick="javascript:mostrar_imagen50('imagen5')" />
-                <input type="button" class="favorite styleda" value="O" onClick="javascript:mostrar_imagen51('imagen5')" />
-                <input type="button" class="favorite styledb" value="M" onClick="javascript:mostrar_imagen52('imagen5')" />
-            </form>
-
-            <script type="text/javascript" language="javascript">
-                function mostrar_imagen50(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 5";
-                    if (!$sql == 'Libre') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Libre' WHERE id = 5";
-                    } else {
-                        echo "console.log('Ya esta libre')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen51(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 5";
-                    if (!$sql == 'Ocupado') {
-                        $sqll = "UPDATE tbl_mesa SET cont = cont+4 WHERE id = 5";
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Ocupado' WHERE id = 5";
-                    } else {
-                        echo "console.log('Ya esta ocupado')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen52(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 5";
-                    if (!$sql == 'Mantenimiento') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = 5";
-                    } else {
-                        echo "console.log('Ya esta en mantenimiento')";
-                    }
-                    ?>
-                }
-            </script>
-        </div>
-
-
-        <!-- MESA6 -->
-        <div class="column-3">
-            <h1 class="pado">Mesa6</h1>
-
-            <div id="imagen6">
-            <?php
-                $sql6 = "SELECT estado FROM tbl_mesa WHERE id = 6";
-                if ($sql == 'Libre') {
-                    echo "<img src='../img/mesaPequeLibre.png' />";
-                } else if ($sql == 'Ocupado') {
-                    echo "<img src='../img/mesaPequeOcupada.png' />";
-                } else {
-                    echo "<img src='../img/mesaPequeMantenimiento.png' width='480px'/>";
-                }
-
-                ?>
-            </div>
-            <form method="post" class="padding" action="./terraza1.php">
-                <input type="button" class="favorite styledc" value="L" name="Libre" onClick="javascript:mostrar_imagen60('imagen6')" />
-                <input type="button" class="favorite styleda" value="O" onClick="javascript:mostrar_imagen61('imagen6')" />
-                <input type="button" class="favorite styledb" value="M" onClick="javascript:mostrar_imagen62('imagen6')" />
-            </form>
-
-            <script type="text/javascript" language="javascript">
-                function mostrar_imagen60(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeLibre.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 6";
-                    if (!$sql == 'Libre') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Libre' WHERE id = 6";
-                    } else {
-                        echo "console.log('Ya esta libre')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen61(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeOcupada.png" />';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 6";
-                    if (!$sql == 'Ocupado') {
-                        $sqll = "UPDATE tbl_mesa SET cont = cont+4 WHERE id = 6";
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Ocupado' WHERE id = 6";
-                    } else {
-                        echo "console.log('Ya esta ocupado')";
-                    }
-                    ?>
-                }
-
-                function mostrar_imagen62(id) {
-                    img = document.getElementById(id);
-                    img.innerHTML = '<img src="../img/mesaPequeMantenimiento.png" width="480px"/> ';
-                    <?php
-                    $sql = "SELECT estado FROM tbl_mesa WHERE id = 6";
-                    if (!$sql == 'Mantenimiento') {
-                        $sql2 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = 6";
-                    } else {
-                        echo "console.log('Ya esta en mantenimiento')";
-                    }
-                    ?>
-                }
-            </script>
-
-            <h1>
-                Ocupación:
-                <?php
-                $sql = "SELECT estado FROM tbl_mesa WHERE estado = 'ocupado'";
-
-                ?>
-
-            </h1>
-        </div>
-
-        </body>
-
+        <?php $contmesa++; } ?>
+    </body>
 </html>

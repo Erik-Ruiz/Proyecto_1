@@ -9,7 +9,6 @@ $bd = BD;
 $conexion = mysqli_connect($server,$username,$password,$bd);
 
 
-
 // if (mysqli_connect_error()) {
 //     echo "<script>location.href='../index.php?log=2'</script>";
 //     exit();
