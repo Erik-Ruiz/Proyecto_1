@@ -8,40 +8,42 @@ if ($funcion == 'Libre') {
     libre($id);
 } else if($funcion == 'Ocupado') {
     ocupar($id);
-}else{
-    mantener($id);
+}else if($funcion == 'Mantenimiento'){
+    reparar_camarero($id);
+}else if($funcion == 'Reparado'){
+    Reparado($id);
 }
 
 function ocupar($id){
-require "./connection.php";
+    require "./connection.php";
 
-$conexion->autocommit(false);
+    $conexion->autocommit(false);
 
-$conexion->query("UPDATE tbl_mesa SET cont = cont+4, estado = 'Ocupado' WHERE id = $id");
-$DateAndTime = date('m-d-Y h:i:s', time());  
-$conexion->query("INSERT INTO tbl_t_comer (t_i_comer,t_f_comer,id_mesa) VALUES ('$DateAndTime','',$id)");
+    $conexion->query("UPDATE tbl_mesa SET cont_personas = cont_personas+4, estado = 'Ocupado' WHERE id = $id");
+    $DateAndTime = date('m-d-Y h:i:s', time());  
+    $conexion->query("INSERT INTO tbl_t_comer (t_i_comer,t_f_comer,id_mesa) VALUES ('$DateAndTime','',$id)");
 
-$conexion->commit();
-// $pdo->beginTransaction();
+    $conexion->commit();
+    // $pdo->beginTransaction();
 
-// $sql1 = "UPDATE tbl_mesa SET cont = cont+4, estado = 'Ocupado' WHERE id = $id";
-// $stmt= $pdo->prepare($sql1);
-// $stmt->execute();
+    // $sql1 = "UPDATE tbl_mesa SET cont = cont+4, estado = 'Ocupado' WHERE id = $id";
+    // $stmt= $pdo->prepare($sql1);
+    // $stmt->execute();
 
-// $id = $pdo->lastInsertId();
+    // $id = $pdo->lastInsertId();
 
-// $sql2="INSERT INTO tbl_t_comer (t_i_comer,t_f_comer,id_mesa) VALUES ('$DateAndTime','',$id)";
-// $stmt= $pdo->prepare($sql2);
-// $stmt->execute();
+    // $sql2="INSERT INTO tbl_t_comer (t_i_comer,t_f_comer,id_mesa) VALUES ('$DateAndTime','',$id)";
+    // $stmt= $pdo->prepare($sql2);
+    // $stmt->execute();
 
-// $pdo->commit();
+    // $pdo->commit();
 
-// $sql1 = "UPDATE tbl_mesa SET cont = cont+4, estado = 'Ocupado' WHERE id = $id";
-// $stmt=mysqli_stmt_init($conexionion);
-// mysqli_stmt_prepare($stmt,$sql1);
-// mysqli_stmt_execute($stmt);
+    // $sql1 = "UPDATE tbl_mesa SET cont = cont+4, estado = 'Ocupado' WHERE id = $id";
+    // $stmt=mysqli_stmt_init($conexionion);
+    // mysqli_stmt_prepare($stmt,$sql1);
+    // mysqli_stmt_execute($stmt);
 
-echo "<script>location.href='../pages/terraza1.php'</script>";
+    echo "<script>location.href='../pages/terraza1.php'</script>";
 }
 
 function libre($id){
@@ -61,44 +63,91 @@ function libre($id){
     echo "<script>location.href='../pages/terraza1.php'</script>";
 }
 
-function mantener($id){
+function reparar_camarero($id){
     require "./connection.php";
-    $sql3 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = $id";
-    $stmt=mysqli_stmt_init($conexionion);
-    mysqli_stmt_prepare($stmt,$sql3);
-    mysqli_stmt_execute($stmt);
+
+    $conexion->autocommit(false);
+    
+    $conexion->query("UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = $id");
+    $DateAndTime = date('m-d-Y h:i:s', time());  
+    $conexion->query("INSERT INTO tbl_t_reparacion (t_i_reparacion,t_f_reparacion,id_mesa) VALUES ('$DateAndTime','',$id)");
+    
+    $conexion->commit();
+
+    // $sql3 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = $id";
+    // $stmt=mysqli_stmt_init($conexionion);
+    // mysqli_stmt_prepare($stmt,$sql3);
+    // mysqli_stmt_execute($stmt);
     echo "<script>location.href='../pages/terraza1.php'</script>";
 }
 
+// function reparado_mantenimiento($id){
+//     require "./connection.php";
 
-// function tiempoinicio($id){
-//     require ("./connection.php");
-
+//     $conexion->autocommit(false);
+    
+//     $conexion->query("UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = $id");
 //     $DateAndTime = date('m-d-Y h:i:s', time());  
-//     // echo "The current date and time are $DateAndTime";
+//     $conexion->query("INSERT INTO tbl_t_reparacion (t_i_reparacion,t_f_reparacion,id_mesa) VALUES ('$DateAndTime','',$id)");
     
-//     $sql1="INSERT INTO tbl_t_comer (t_i_comer,t_f_comer,id_mesa) VALUES ('$DateAndTime','',$id)";
-//     $stmt=mysqli_stmt_init($conexionion);
-//     mysqli_stmt_prepare($stmt,$sql1);
-    
-//     if (mysqli_stmt_execute($stmt) === TRUE) {
-//         $last_id = $conexionion->insert_id;
-//         // echo "New record created successfully. Last inserted ID is: " . $last_id;
-//     } else {
-//         echo "Error: " . $sql1 . "<br>" . $conexionion->error;
-//     }
-    
-//     mysqli_stmt_close($stmt);
+//     $conexion->commit();
 
+//     // $sql3 = "UPDATE tbl_mesa SET estado = 'Mantenimiento' WHERE id = $id";
+//     // $stmt=mysqli_stmt_init($conexionion);
+//     // mysqli_stmt_prepare($stmt,$sql3);
+//     // mysqli_stmt_execute($stmt);
+//     echo "<script>location.href='../pages/mantenimiento.php'</script>";
 // }
-// function tiempofin($last_id,$id){
-    
-//     require ("./connection.php");
 
-//     $DateAndTimeF = date('m-d-Y h:i:s', time());  
-//     // echo "The current date and time are $DateAndTime";
+function Reparado($id){
+    require "./connection.php";
 
-//     $t_f_comer = "UPDATE tbl_t_comer (t_i_comer,t_f_comer,id_mesa) VALUES ('','$DateAndTimeF',$id)";
+    $conexion->autocommit(false);
 
-// }
+    $conexion->query("UPDATE tbl_mesa SET cont_reparaciones = cont_reparaciones+1, estado = 'Libre' WHERE id = $id");
+    $DateAndTimeF = date('m-d-Y h:i:s', time());
+    $conexion->query("UPDATE tbl_t_reparacion SET t_f_reparacion = '$DateAndTimeF' WHERE id_mesa = $id");
+
+    $conexion->commit();
+    // $sql2 = "UPDATE tbl_mesa SET estado = 'Libre' WHERE id = $id";
+    // $stmt=mysqli_stmt_init($conexionion);
+    // mysqli_stmt_prepare($stmt,$sql2);
+    // mysqli_stmt_execute($stmt);
+    echo "<script>location.href='../pages/mantenimiento.php'</script>";
+}
+
+function tiempoComer($id){
+
+    require "./connection.php";
+
+    $sql1 = "SELECT t_i_comer FROM tbl_t_comer where id = $id";
+    $sql2 = "SELECT t_f_comer FROM tbl_t_comer where id = $id";
+
+
+    $fecha1 = new DateTime($sql1);
+    $fecha2 = new DateTime($sql2);
+
+    $diferencia = $fecha1 -> diff($fecha2);
+
+    //FALTA MOSTRAR ESTE CAMPO
+    echo $diferencia;
+}
+
+function tiempoReparacion($id){
+
+    require "./connection.php";
+
+    $sql1 = "SELECT t_i_comer FROM tbl_t_comer where id = $id";
+    $sql2 = "SELECT t_f_comer FROM tbl_t_comer where id = $id";
+
+
+    $fecha1 = new DateTime($sql1);
+    $fecha2 = new DateTime($sql2);
+
+    $diferencia = $fecha1 -> diff($fecha2);
+
+    //FALTA MOSTRAR ESTE CAMPO
+    echo $diferencia;
+}
+
 ?>

@@ -52,7 +52,6 @@
         </div>
     </div>
      <input type="hidden" id="session" name="log" value="<?php echo $_GET["log"]; ?>"/>
-
     
 </body>
 </html>

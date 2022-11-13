@@ -83,10 +83,10 @@
     box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
       inset -2px -2px 3px rgba(0, 0, 0, 0.6);
   }
-  .padding {
+  /* .padding {
     padding-left: 30%;
     padding-bottom: 1%;
-  }
+  } */
   .pado {
     padding-left: 180px;
   }
@@ -99,7 +99,18 @@
   padding-top: 2%;
   }
   
-  
+  .mesa{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .imagen_mesa{
+
+  }
+  .botones{
+
+  }
   @media only screen and (max-width: 1500px) {
     .column-3 {
       width: 50%;
