@@ -20,7 +20,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./js/valid-form.js"></script>
-    <script src="./js/valid-session.js"></script>
 
 
     <title>Login</title>

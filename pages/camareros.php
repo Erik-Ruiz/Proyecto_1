@@ -7,6 +7,7 @@
   }
     require_once '../components/cabecera.php';
     require_once '../controller/connection.php';
+    // require_once '../controller/mesa.php';
     // header("refresh: 3;");
 
 ?>
@@ -84,5 +85,12 @@
   </div>
 </nav>
     
+<?php
+    // echo "<tr>";
+
+    // echo "<td>{tiempoReparacion($id)}</td>";
+    // echo "</tr>";
+
+    ?>
 </body>
 </html>

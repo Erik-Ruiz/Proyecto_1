@@ -1,6 +1,6 @@
 <?php
 
-require "./connection.php";
+require "connection.php";
 $id=$_POST['id'];
 $funcion=$_POST['funcion'];
 
@@ -137,12 +137,19 @@ function tiempoReparacion($id){
 
     require "./connection.php";
 
-    $sql1 = "SELECT t_i_comer FROM tbl_t_comer where id = $id";
-    $sql2 = "SELECT t_f_comer FROM tbl_t_comer where id = $id";
+    // $sql1 = "SELECT t_i_reparacion FROM tbl_t_reparacion where id = $id";
+    // $sql2 = "SELECT t_f_reparacion FROM tbl_t_reparacion where id = $id";
 
+    $conexion->autocommit(false);
 
-    $fecha1 = new DateTime($sql1);
-    $fecha2 = new DateTime($sql2);
+    $fechaInicio=$conexion->query("SELECT t_i_reparacion FROM tbl_t_reparacion where id = $id");
+
+    $fechaFinal=$conexion->query("SELECT t_f_reparacion FROM tbl_t_reparacion where id = $id");
+
+    $conexion->commit();
+
+    $fecha1 = new DateTime($fechaInicio);
+    $fecha2 = new DateTime($fechaFinal);
 
     $diferencia = $fecha1 -> diff($fecha2);
 

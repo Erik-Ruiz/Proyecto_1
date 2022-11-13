@@ -74,11 +74,9 @@ require_once '../controller/hora.php';
             </div>
         </div>
     </nav>
-    <div style="margin-top: 30px;" class="mesa">
+    <div style="margin-top: 30px;">
         <!-- MESA1 -->
-        <div class="column-3">
-            
-
+        
             <div class="imagen_mesa" id="imagen">
                 <?php
                 $sql = "SELECT estado,id FROM tbl_mesa  WHERE id_sala=1";
@@ -91,50 +89,65 @@ require_once '../controller/hora.php';
 
                 ?>
             </div>
-            <div class="botones">
+            <div class="mesa_botones">
                 <?php                
                     $contmesa=0;
                     foreach($resultfa as $mesa){
-                            if ($resultfa[$contmesa]['estado'] == 'Libre') {
-                                echo "<img src='../img/mesaPequeLibre.png' />";?>
-                            <form method="post" class="padding" action="../controller/mesa.php">
-                                <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">    
-                                <input type="submit" class="favorite styledc" value="Libre" name="Libre" />
-                                <input type='hidden' name='funcion' value='Libre'>    
-                            </form>
-                            <form method="post" class="padding" action="../controller/mesa.php">
-                                <input type="submit" class="favorite styleda" value="Ocupar"/>
-                                <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
-                                <input type='hidden' name='funcion' value='Ocupado'>
-                            </form>
-                            <form method="post" class="padding" action="../controller/mesa.php">
-                                <input type="submit" class="favorite styledb" value="Reparar"  />
-                                <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
-                                <input type='hidden' name='funcion' value='Mantenimiento'>
-                            </form>
-
-                        <?php
-                            } else if ($resultfa[$contmesa]['estado'] == 'Ocupado') {
-                                echo "<img src='../img/mesaPequeOcupada.png' />";?>
-                                                           <form method="post" class="padding" action="../controller/mesa.php">
-                                <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">    
-                                <input type="submit" class="favorite styledc" value="Libre" name="Libre" />
-                                <input type='hidden' name='funcion' value='Libre'>    
-                            </form>
-                            <form method="post" class="padding" action="../controller/mesa.php">
-                                <input type="submit" class="favorite styleda" value="Ocupar"/>
-                                <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
-                                <input type='hidden' name='funcion' value='Ocupado'>
-                            </form>
-                            <form method="post" class="padding" action="../controller/mesa.php">
-                                <input type="submit" class="favorite styledb" value="Reparar"  />
-                                <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
-                                <input type='hidden' name='funcion' value='Mantenimiento'>
-                            </form>
+                        ?><div class="img_btn"> 
+                                <?php
+                                if ($resultfa[$contmesa]['estado'] == 'Libre') {
+                                    
+                                    echo "<div class='imagen'> <img src='../img/mesaPequeLibre.png' /> </div>";?>
+                                <div class="btn">
+                                    <form method="post" class="padding" action="../controller/mesa.php">
+                                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">    
+                                        <input type="submit" class="favorite styledc" value="Libre" name="Libre" />
+                                        <input type='hidden' name='funcion' value='Libre'>    
+                                    </form>
+                                    <form method="post" class="padding" action="../controller/mesa.php">
+                                        <input type="submit" class="favorite styleda" value="Ocupar"/>
+                                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
+                                        <input type='hidden' name='funcion' value='Ocupado'>
+                                    </form>
+                                    <form method="post" class="padding" action="../controller/mesa.php">
+                                        <input type="submit" class="favorite styledb" value="Reparar"  />
+                                        <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
+                                        <input type='hidden' name='funcion' value='Mantenimiento'>
+                                    </form>
+                                </div>
+                            </div>   
+                            
+                                    <?php
+                                    } else if ($resultfa[$contmesa]['estado'] == 'Ocupado') {?>
+                                        <div class="img_btn"> <?php
+                                        echo "<div class='imagen'>  <img src='../img/mesaPequeOcupada.png' /> </div>";?>
+                                    <div class="btn">
+                                        <form method="post" class="padding" action="../controller/mesa.php">
+                                            <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">    
+                                            <input type="submit" class="favorite styledc" value="Libre" name="Libre" />
+                                            <input type='hidden' name='funcion' value='Libre'>    
+                                        </form>
+                                        <form method="post" class="padding" action="../controller/mesa.php">
+                                            <input type="submit" class="favorite styleda" value="Ocupar"/>
+                                            <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
+                                            <input type='hidden' name='funcion' value='Ocupado'>
+                                        </form>
+                                        <form method="post" class="padding" action="../controller/mesa.php">
+                                            <input type="submit" class="favorite styledb" value="Reparar"  />
+                                            <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
+                                            <input type='hidden' name='funcion' value='Mantenimiento'>
+                                        </form>
+                                    </div>
+                            
                         <?php
                             } else {
-                                echo "<img src='../img/mesaPequeMantenimiento.png'/>";
-                                
+                                ?>
+                            <div class="img_btn">
+                                <?php
+                                echo "<div class='imagen'> <img src='../img/mesaPequeMantenimiento.png'/> </div>";
+                                ?>
+                            </div>
+                        <?php
                             }
                         ?>
                         
@@ -154,7 +167,7 @@ require_once '../controller/hora.php';
                                 <input type='hidden' name='funcion' value='Mantenimiento'>
                             </form> -->
                 <?php $contmesa++; } ?>
-                </div>
+            </div>
     </div>            
     </body>
 </html>
