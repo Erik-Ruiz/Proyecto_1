@@ -20,7 +20,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./js/valid-form.js"></script>
-    <script src="./js/valid-session.js"></script>
 
 
     <title>Login</title>
@@ -52,7 +51,6 @@
         </div>
     </div>
      <input type="hidden" id="session" name="log" value="<?php echo $_GET["log"]; ?>"/>
-
     
 </body>
 </html>

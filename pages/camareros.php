@@ -7,6 +7,7 @@
   }
     require_once '../components/cabecera.php';
     require_once '../controller/connection.php';
+    // require_once '../controller/mesa.php';
     // header("refresh: 3;");
 
 ?>
@@ -45,7 +46,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="terraza1.php">Terraza 1</a></li>
-              <li><a class="dropdown-item" href="#">Terraza 2</a></li>
+              <li><a class="dropdown-item" href="terraza2.php">Terraza 2</a></li>
             </ul>
           </li>
         </ul>
@@ -84,5 +85,12 @@
   </div>
 </nav>
     
+<?php
+    // echo "<tr>";
+
+    // echo "<td>{tiempoReparacion($id)}</td>";
+    // echo "</tr>";
+
+    ?>
 </body>
 </html>

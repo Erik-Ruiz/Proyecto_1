@@ -1,11 +1,11 @@
 
 function validacion() {
 
-    userI = document.getElementById('icono1');
+    // userI = document.getElementById('icono1');
     user = document.getElementById('correo');
     correo = document.getElementById('correo').value;
 
-    passI = document.getElementById('icono2');
+    // passI = document.getElementById('icono2');
     pass = document.getElementById('passw');
     passw = document.getElementById('passw').value;
 
