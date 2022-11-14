@@ -16,7 +16,7 @@ require_once '../controller/hora.php';
     <nav class="navbar bg-light fixed-top">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="./camareros.php">Camareros <a class="navbar-brand" href="#">Terraza 1</a></a>
+            <a class="navbar-brand" href="./camareros.php">Camareros <a class="navbar-brand" href="#">Terraza 2</a></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
