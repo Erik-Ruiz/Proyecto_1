@@ -74,6 +74,7 @@ require_once '../controller/hora.php';
             </div>
         </div>
     </nav>
+    
     <div style="margin-top: 30px;" class="mesa">
         <!-- MESA1 -->
         <div class="column-3">
@@ -107,11 +108,13 @@ require_once '../controller/hora.php';
                         <input type="submit" class="favorite styledc" value="Libre" name="Libre" />
                         <input type='hidden' name='funcion' value='Libre'>    
                     </form>
+
                     <form method="post" class="padding" action="../controller/mesa.php">
                         <input type="submit" class="favorite styleda" value="Ocupar"/>
                         <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
                         <input type='hidden' name='funcion' value='Ocupado'>
                     </form>
+
                     <form method="post" class="padding" action="../controller/mesa.php">
                         <input type="submit" class="favorite styledb" value="Mantener"  />
                         <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
