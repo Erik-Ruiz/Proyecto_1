@@ -89,11 +89,11 @@ require_once '../controller/hora.php';
 
                 ?>
             </div>
-            <div class="mesa_botones">
+            <div class="container">
                 <?php                
                     $contmesa=0;
                     foreach($resultfa as $mesa){
-                        ?><div class="img_btn"> 
+                        ?><div class="column"> 
                                 <?php
                                 if ($resultfa[$contmesa]['estado'] == 'Libre') {
                                     
@@ -119,30 +119,33 @@ require_once '../controller/hora.php';
                             
                                     <?php
                                     } else if ($resultfa[$contmesa]['estado'] == 'Ocupado') {?>
-                                        <div class="img_btn"> <?php
+                                         <?php
                                         echo "<div class='imagen'>  <img src='../img/mesaPequeOcupada.png' /> </div>";?>
                                     <div class="btn">
                                         <form method="post" class="padding" action="../controller/mesa.php">
+                                        
                                             <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">    
-                                            <input type="submit" class="favorite styledc" value="Libre" name="Libre" />
-                                            <input type='hidden' name='funcion' value='Libre'>    
+                                            <input type='hidden' name='funcion' value='Libre'>
+                                            <input type="submit" class="favorite styledc" value="Libre" name="Libre" />    
                                         </form>
                                         <form method="post" class="padding" action="../controller/mesa.php">
-                                            <input type="submit" class="favorite styleda" value="Ocupar"/>
+                                            
                                             <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
                                             <input type='hidden' name='funcion' value='Ocupado'>
+                                            <input type="submit" class="favorite styleda" value="Ocupar"/>
                                         </form>
                                         <form method="post" class="padding" action="../controller/mesa.php">
-                                            <input type="submit" class="favorite styledb" value="Reparar"  />
+                                            
                                             <input type="hidden" name="id" value="<?php echo $resultfa[$contmesa]['id']; ?>">   
                                             <input type='hidden' name='funcion' value='Mantenimiento'>
+                                            <input type="submit" class="favorite styledb" value="Reparar"  />
                                         </form>
                                     </div>
                             
                         <?php
                             } else {
                                 ?>
-                            <div class="img_btn">
+                            
                                 <?php
                                 echo "<div class='imagen'> <img src='../img/mesaPequeMantenimiento.png'/> </div>";
                                 ?>

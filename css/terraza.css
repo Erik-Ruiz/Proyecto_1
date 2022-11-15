@@ -12,17 +12,6 @@
     cursor: pointer;
   }
   
-  .button1 {
-    background-color: #4caf50;
-  }
-  
-  .button2 {
-    background-color: #008cba;
-  }
-  
-  .button3 {
-    background-color: red;
-  }
   
   .styleda {
     border: 0;
@@ -99,24 +88,25 @@
   padding-top: 2%;
   } */
   
-  .mesa_botones{
+  .container{
+    
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row;    
   }
 
-  .img_btn {
-      width: 33.33%;
-      display: flex;
-      flex-direction: column;
+  .column { 
+      /* padding: 5%; */
+      width: 50%;
+      box-sizing: border-box;
       
     }
   .imagen{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+      width: 100%;
+      object-fit: contain;
+      display: flex;
+      justify-content: center;
     }
   .btn{
       width: 100%;
@@ -125,14 +115,12 @@
       justify-content: center;
     }
   @media only screen and (max-width: 1500px) {
-    .column-3 {
-      width: 50%;
-    }
+
   }
   
-  @media only screen and (max-width: 1000px) {
-    .column-3 {
-      width: 100%;
+  @media only screen and (min-width: 1000px) {
+    .img_btn {
+      width: 50%;
     }
   }
   

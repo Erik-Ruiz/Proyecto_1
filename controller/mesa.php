@@ -20,7 +20,7 @@ function ocupar($id){
     $conexion->autocommit(false);
 
     $conexion->query("UPDATE tbl_mesa SET cont_personas = cont_personas+4, estado = 'Ocupado' WHERE id = $id");
-    $DateAndTime = date('m-d-Y h:i:s', time());  
+    $DateAndTime = date('Y-m-d h:i:s', time());  
     $conexion->query("INSERT INTO tbl_t_comer (t_i_comer,t_f_comer,id_mesa) VALUES ('$DateAndTime','',$id)");
 
     $conexion->commit();
@@ -39,7 +39,7 @@ function ocupar($id){
     // $pdo->commit();
 
     // $sql1 = "UPDATE tbl_mesa SET cont = cont+4, estado = 'Ocupado' WHERE id = $id";
-    // $stmt=mysqli_stmt_init($conexionion);
+    // $stmt=mysqli_stmt_init($conexion);
     // mysqli_stmt_prepare($stmt,$sql1);
     // mysqli_stmt_execute($stmt);
 
@@ -52,7 +52,7 @@ function libre($id){
     $conexion->autocommit(false);
 
     $conexion->query("UPDATE tbl_mesa SET estado = 'Libre' WHERE id = $id");
-    $DateAndTimeF = date('m-d-Y h:i:s', time());
+    $DateAndTimeF = date('Y-m-d h:i:s', time());
     $conexion->query("UPDATE tbl_t_comer SET t_f_comer = '$DateAndTimeF' WHERE id_mesa = $id");
 
     $conexion->commit();
@@ -116,21 +116,16 @@ function Reparado($id){
     echo "<script>location.href='../pages/mantenimiento.php'</script>";
 }
 
-function tiempoComer($id){
+function tiempoComer(){
 
-    require "./connection.php";
+    include "connection.php";
 
-    $sql1 = "SELECT t_i_comer FROM tbl_t_comer where id = $id";
-    $sql2 = "SELECT t_f_comer FROM tbl_t_comer where id = $id";
-
-
-    $fecha1 = new DateTime($sql1);
-    $fecha2 = new DateTime($sql2);
-
-    $diferencia = $fecha1 -> diff($fecha2);
+    $sql1 = "SELECT TIMESTAMPDIFF(SECOND,t_i_comer,t_f_comer)/60 AS 'Dif_Comer' FROM `tbl_t_comer`;";
+    $resultado1 = mysqli_query($conexion,$sql1);
+    $resul1=$resultado1->fetch_all(MYSQLI_ASSOC);
 
     //FALTA MOSTRAR ESTE CAMPO
-    echo $diferencia;
+    return $resul1;
 }
 
 function tiempoReparacion($id){

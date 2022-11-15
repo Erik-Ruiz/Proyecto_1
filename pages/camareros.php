@@ -7,8 +7,13 @@
   }
     require_once '../components/cabecera.php';
     require_once '../controller/connection.php';
-    // require_once '../controller/mesa.php';
+    require_once '../controller/contadores.php';
+    require_once '../controller/mesa.php';
     // header("refresh: 3;");
+    
+    $resultado = Contadores::contadorReparaciones();
+    $result = Contadores::contadorPersonas();
+    $tiempomesa = tiempoComer();
 
 ?>
 
@@ -23,7 +28,7 @@
 </head>
 <body>
 
-<nav class="navbar bg-light fixed-top">
+<nav class="navbar bg-light ">
   <div class="container-fluid">
 
     <a class="navbar-brand" href="#">Camareros</a>
@@ -84,13 +89,35 @@
     </div>
   </div>
 </nav>
-    
-<?php
-    // echo "<tr>";
 
-    // echo "<td>{tiempoReparacion($id)}</td>";
-    // echo "</tr>";
 
-    ?>
+
+<table class='table table-light' border='1'>
+<thead>
+<tr>
+    <th>Personas que han comido</th>
+    <th>Mesas reparadas</th>
+</tr>
+</thead>
+
+<tr>
+<td><?php echo $result[0]['Am'] ?></td>
+<td><?php echo $resultado[0]['Am'] ?></td>
+</tr>
+
+
+<table class='table table-light' border='1'>
+<thead>
+<tr>
+    <th>Mesa</th>
+    <th>Tiempo comida</th>
+</tr>
+</thead>
+
+<tr>
+<td><?php echo $result[0]['Am'] ?></td>
+<td><?php echo $tiempomesa[0]['Dif_Comer'] ?></td>
+</tr>
+
 </body>
 </html>
