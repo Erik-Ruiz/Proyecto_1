@@ -1,7 +1,7 @@
 <?php
 
 
-const SERVIDOR ='192.168.172.228';
-const USUARIO = 'admin_pr1';
-const PASSWORD = 'Admin12345';
+const SERVIDOR ='localhost';
+const USUARIO = 'root';
+const PASSWORD = '';
 const BD = 'bd_proyecto_1';
