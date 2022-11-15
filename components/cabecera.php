@@ -1,5 +1,5 @@
 <?php
-    // header("refresh: 10;");
+    header("refresh: 10;");
 ?>
 
 

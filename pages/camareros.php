@@ -14,7 +14,7 @@
     $resultado = Contadores::contadorReparaciones();
     $result = Contadores::contadorPersonas();
     $tiempomesa = tiempoComer();
-
+    $tiemporeparar = tiempoReparacion();
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<nav class="navbar bg-light ">
+<nav class="navbar bg-light fixed-top" style="height: 15%;">
   <div class="container-fluid">
 
     <a class="navbar-brand" href="#">Camareros</a>
@@ -63,7 +63,6 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Sala Privada 1</a></li>
-              <li><a class="dropdown-item" href="#">Sala Privada 2</a></li>
             </ul>
 
           </li>
@@ -76,7 +75,6 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Sala 1</a></li>
-              <li><a class="dropdown-item" href="#">Sala 2</a></li>
             </ul>
           </li>
         </ul>
@@ -92,7 +90,7 @@
 
 
 
-<table class='table table-light' border='1'>
+<table class='table table-light ' border='1' style="margin-top: 2%;">
 <thead>
 <tr>
     <th>Personas que han comido</th>
@@ -109,13 +107,13 @@
 <table class='table table-light' border='1'>
 <thead>
 <tr>
-    <th>Mesa</th>
+    <th>Tiempo reparacion</th>
     <th>Tiempo comida</th>
 </tr>
 </thead>
 
 <tr>
-<td><?php echo $result[0]['Am'] ?></td>
+<td><?php echo $tiemporeparar[0]['Dif_Reparar'] ?></td>
 <td><?php echo $tiempomesa[0]['Dif_Comer'] ?></td>
 </tr>
 

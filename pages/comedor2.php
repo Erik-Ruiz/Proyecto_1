@@ -2,6 +2,12 @@
 require_once './components/cabecera.php';
 require_once '../controller/connection.php';
 
+session_start();
+if(empty($_SESSION['login'])){
+  echo "<script>location.href='../index.php'</script>";
+
+  die();
+}
 ?>
 
 <!DOCTYPE html>
